@@ -1,0 +1,84 @@
+[2026-11-17 19:09:37] [02_app] instalando .NET 10
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+[2026-11-17 19:11:47] [02_app] dotnet 10.0.115, Python 3.12.3
+[2026-11-17 19:11:47] [02_app] variáveis em /etc/sampaia/sampaia.env (chaves: Lembretes__Url,Previsao__Url,ASPNETCORE_ENVIRONMENT)
+
+Welcome to .NET 10.0!
+---------------------
+SDK Version: 10.0.115
+
+----------------
+Installed an ASP.NET Core HTTPS development certificate.
+To trust the certificate, run 'dotnet dev-certs https --trust'
+Learn about HTTPS: https://aka.ms/dotnet-https
+
+----------------
+Write your first app: https://aka.ms/dotnet-hello-world
+Find out what's new: https://aka.ms/dotnet-whats-new
+Explore documentation: https://aka.ms/dotnet-docs
+Report issues and find source on GitHub: https://github.com/dotnet/core
+Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------
+[2026-11-17 19:15:44] [02_app] build publicado em /opt/sampaia
+[2026-11-17 19:15:44] [02_app] sem Oracle: SQLite local em /opt/sampaia/dados
+Created symlink /etc/systemd/system/multi-user.target.wants/sampaia-previsao.service → /etc/systemd/system/sampaia-previsao.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/sampaia-lembretes.service → /etc/systemd/system/sampaia-lembretes.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/sampaia-agente.service → /etc/systemd/system/sampaia-agente.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/sampaia-monitor.service → /etc/systemd/system/sampaia-monitor.service.
+Created symlink /etc/systemd/system/timers.target.wants/sampaia-monitor.timer → /etc/systemd/system/sampaia-monitor.timer.
+[2026-11-17 19:15:52] [02_app] http://localhost:5009/api/servicos -> HTTP 200
+[2026-11-17 19:15:52] [02_app] http://localhost:5010/api/lembretes -> HTTP 200
+● sampaia-agente.service - SampaIA - API do Agente
+     Active: active (running) since Tue 2026-11-17 19:15:45 -03; 7s ago
+● sampaia-lembretes.service - SampaIA - API de Lembretes
+     Active: active (running) since Tue 2026-11-17 19:15:45 -03; 7s ago
+● sampaia-previsao.service - SampaIA - Previsão de prazo do SP156 (ML)
+     Active: active (running) since Tue 2026-11-17 19:15:44 -03; 8s ago
+● sampaia-monitor.service - SampaIA - Monitor de CPU, memória, disco e APIs
+     Active: active (running) since Tue 2026-11-17 19:15:46 -03; 6s ago
+TriggeredBy: ● sampaia-monitor.timer

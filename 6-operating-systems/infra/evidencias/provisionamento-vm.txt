@@ -1,0 +1,258 @@
+# Execução real do roteiro de infra/README.md numa VM Ubuntu 24.04 limpa (VirtualBox), 2026-11-17T22:20:34.556Z
+# Gerado por pitch/gravar/os.mjs (mesmo log do vídeo de Operating Systems). Sem ANTHROPIC_API_KEY nem ORACLE_CONN na VM.
+# host: VBoxManage list runningvms -> "sampaia-vm" {22609a2a-2f53-411a-b30d-98447c8a8248}
+
+$ hostnamectl | grep -E "hostname|Virtualization|Operating System|Kernel"    # 0s, código 0
+ Static hostname: ubuntu-limpo
+  Virtualization: oracle
+Operating System: Ubuntu 24.04.5 LTS
+          Kernel: Linux 6.8.0-147-generic
+
+$ systemd-detect-virt    # 0s, código 0
+oracle
+
+$ ls /etc/sampaia 2>&1 || true    # 0s, código 0
+ls: cannot access '/etc/sampaia': No such file or directory
+
+$ sudo ./infra/01_rede.sh    # 7s, código 0
+[2026-11-17 19:09:29] [01_rede] fuso horário: America/Sao_Paulo
+[2026-11-17 19:09:29] [01_rede] hostname definido: sampaia-vm
+[2026-11-17 19:09:30] [01_rede] rede aplicada em enp0s3 (dhcp), DNS 1.1.1.1,8.8.8.8
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW IN    Anywhere                  
+5009/tcp                   ALLOW IN    Anywhere                  
+5010/tcp                   ALLOW IN    Anywhere                  
+22/tcp (v6)                ALLOW IN    Anywhere (v6)             
+5009/tcp (v6)              ALLOW IN    Anywhere (v6)             
+5010/tcp (v6)              ALLOW IN    Anywhere (v6)             
+
+[2026-11-17 19:09:35] [01_rede] firewall ativo
+
+$ hostnamectl --static    # 0s, código 0
+sampaia-vm
+
+$ resolvectl dns | head -n 3    # 0s, código 0
+Global:
+Link 2 (enp0s3): 1.1.1.1 8.8.8.8 10.0.2.3 fd17:625c:f037:2::3
+
+$ sudo ufw status | head -n 8    # 1s, código 0
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       Anywhere                  
+5009/tcp                   ALLOW       Anywhere                  
+5010/tcp                   ALLOW       Anywhere                  
+22/tcp (v6)                ALLOW       Anywhere (v6)             
+
+$ sudo ./infra/02_app.sh    # 376s, código 0
+[2026-11-17 19:09:37] [02_app] instalando .NET 10
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+[2026-11-17 19:11:47] [02_app] dotnet 10.0.115, Python 3.12.3
+[2026-11-17 19:11:47] [02_app] variáveis em /etc/sampaia/sampaia.env (chaves: Lembretes__Url,Previsao__Url,ASPNETCORE_ENVIRONMENT)
+
+Welcome to .NET 10.0!
+---------------------
+SDK Version: 10.0.115
+
+----------------
+Installed an ASP.NET Core HTTPS development certificate.
+To trust the certificate, run 'dotnet dev-certs https --trust'
+Learn about HTTPS: https://aka.ms/dotnet-https
+
+----------------
+Write your first app: https://aka.ms/dotnet-hello-world
+Find out what's new: https://aka.ms/dotnet-whats-new
+Explore documentation: https://aka.ms/dotnet-docs
+Report issues and find source on GitHub: https://github.com/dotnet/core
+Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------
+[2026-11-17 19:15:44] [02_app] build publicado em /opt/sampaia
+[2026-11-17 19:15:44] [02_app] sem Oracle: SQLite local em /opt/sampaia/dados
+Created symlink /etc/systemd/system/multi-user.target.wants/sampaia-previsao.service → /etc/systemd/system/sampaia-previsao.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/sampaia-lembretes.service → /etc/systemd/system/sampaia-lembretes.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/sampaia-agente.service → /etc/systemd/system/sampaia-agente.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/sampaia-monitor.service → /etc/systemd/system/sampaia-monitor.service.
+Created symlink /etc/systemd/system/timers.target.wants/sampaia-monitor.timer → /etc/systemd/system/sampaia-monitor.timer.
+[2026-11-17 19:15:52] [02_app] http://localhost:5009/api/servicos -> HTTP 200
+[2026-11-17 19:15:52] [02_app] http://localhost:5010/api/lembretes -> HTTP 200
+● sampaia-agente.service - SampaIA - API do Agente
+     Active: active (running) since Tue 2026-11-17 19:15:45 -03; 7s ago
+● sampaia-lembretes.service - SampaIA - API de Lembretes
+     Active: active (running) since Tue 2026-11-17 19:15:45 -03; 7s ago
+● sampaia-previsao.service - SampaIA - Previsão de prazo do SP156 (ML)
+     Active: active (running) since Tue 2026-11-17 19:15:44 -03; 8s ago
+● sampaia-monitor.service - SampaIA - Monitor de CPU, memória, disco e APIs
+     Active: active (running) since Tue 2026-11-17 19:15:46 -03; 6s ago
+TriggeredBy: ● sampaia-monitor.timer
+
+$ sudo cut -d= -f1 /etc/sampaia/sampaia.env    # 1s, código 0
+Lembretes__Url
+Previsao__Url
+ASPNETCORE_ENVIRONMENT
+
+$ curl -s localhost:5009/api/servicos | head -c 260; echo    # 0s, código 0
+[{"id":1,"chave":"sabesp","nome":"2ª via da conta de água","orgao":"Sabesp","modo":"login","urlBase":"https://agenciavirtual.sabesp.com.br/","dominiosSensiveis":"novaagenciavirtual.sabesp.com.br/auth/login"},{"id":2,"chave":"iptu","nome":"Guia do IPTU","orga
+
+$ curl -s localhost:8010/saude; echo    # 0s, código 0
+{"status":"ok","periodo":"01/07/2025 a 30/06/2026","metricas_teste":{"acurácia":0.681,"recall macro":0.705}}
+
+$ sudo ./infra/03_nodered.sh    # 247s, código 0
+[2026-11-17 19:15:55] [03_nodered] instalando Node.js
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+[2026-11-17 19:19:40] [03_nodered] node v18.19.1
+[2026-11-17 19:19:40] [03_nodered] MQTT: broker.hivemq.com:1883, dispositivo casa-7f3k9q
+[2026-11-17 19:19:40] [03_nodered] instalando node-red@4
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'validate-npm-package-name@7.0.2',
+npm WARN EBADENGINE   required: { node: '^20.17.0 || >=22.9.0' },
+npm WARN EBADENGINE   current: { node: 'v18.19.1', npm: '9.2.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'i18next@27.1.3',
+npm WARN EBADENGINE   required: { node: '>=22' },
+npm WARN EBADENGINE   current: { node: 'v18.19.1', npm: '9.2.0' }
+npm WARN EBADENGINE }
+[2026-11-17 19:19:58] [03_nodered] node-red 4.1.18
+Created symlink /etc/systemd/system/multi-user.target.wants/sampaia-nodered.service → /etc/systemd/system/sampaia-nodered.service.
+[2026-11-17 19:20:01] [03_nodered] Node-RED http://127.0.0.1:1880 -> HTTP 200
+● sampaia-nodered.service - SampaIA - Node-RED (ponte MQTT entre o ESP32 e a API de Lembretes)
+     Active: active (running) since Tue 2026-11-17 19:19:59 -03; 2s ago
+[2026-11-17 19:20:01] [03_nodered] o SAMPAIA_DISPOSITIVO precisa ser igual ao DISPOSITIVO do iot/sketch.ino
+
+$ systemctl list-units "sampaia-*" --no-pager --plain | head -n 8    # 1s, código 0
+UNIT                      LOAD   ACTIVE SUB     DESCRIPTION
+sampaia-agente.service    loaded active running SampaIA - API do Agente
+sampaia-lembretes.service loaded active running SampaIA - API de Lembretes
+sampaia-monitor.service   loaded active running SampaIA - Monitor de CPU, memória, disco e APIs
+sampaia-nodered.service   loaded active running SampaIA - Node-RED (ponte MQTT entre o ESP32 e a API de Lembretes)
+sampaia-previsao.service  loaded active running SampaIA - Previsão de prazo do SP156 (ML)
+sampaia-monitor.timer     loaded active running SampaIA - Garante o monitor no ar (sobe de novo se alguém parar o serviço)
+
+
+$ systemctl show sampaia-monitor -p Restart -p ActiveState    # 0s, código 0
+Restart=always
+ActiveState=active
+
+$ (timeout 20 yes > /dev/null & timeout 20 yes > /dev/null &) ; sleep 3; sudo ./infra/monitor.sh; sudo tail -n 3 /var/log/sampaia/alertas.log    # 20s, código 0
+[2026-11-17 19:20:06] [monitor] cpu=99% mem=28% disco=31%
+[2026-11-17 19:20:06] [monitor] ALERTA CPU em 99% (limite 85%)
+2026-11-17 19:15:47 ALERTA API sem resposta: http://localhost:5010/api/lembretes
+2026-11-17 19:19:51 ALERTA CPU em 89% (limite 85%)
+2026-11-17 19:20:06 ALERTA CPU em 99% (limite 85%)
+
+$ sudo LIMITE_MEM=1 LIMITE_DISCO=1 ./infra/monitor.sh; sudo tail -n 2 /var/log/sampaia/alertas.log    # 2s, código 0
+[2026-11-17 19:20:24] [monitor] cpu=0% mem=28% disco=31%
+[2026-11-17 19:20:24] [monitor] ALERTA memória em 28% (limite 1%)
+[2026-11-17 19:20:24] [monitor] ALERTA disco em 31% (limite 1%)
+2026-11-17 19:20:24 ALERTA memória em 28% (limite 1%)
+2026-11-17 19:20:24 ALERTA disco em 31% (limite 1%)
+
+$ sudo ./infra/teste_falha.sh    # 10s, código 0
+[2026-11-17 19:20:24] [teste_falha] [sampaia-agente] PID antes: 3973
+[2026-11-17 19:20:24] [teste_falha] [sampaia-agente] kill -9 enviado; aguardando o systemd reiniciar...
+[2026-11-17 19:20:28] [teste_falha] [sampaia-agente] PID depois: 10527 (reinícios: 1)
+Nov 17 19:20:24 sampaia-vm systemd[1]: sampaia-agente.service: Main process exited, code=killed, status=9/KILL
+Nov 17 19:20:24 sampaia-vm systemd[1]: sampaia-agente.service: Failed with result 'signal'.
+Nov 17 19:20:24 sampaia-vm systemd[1]: sampaia-agente.service: Consumed 4.193s CPU time, 62.3M memory peak, 0B memory swap peak.
+Nov 17 19:20:28 sampaia-vm systemd[1]: sampaia-agente.service: Scheduled restart job, restart counter is at 1.
+Nov 17 19:20:28 sampaia-vm systemd[1]: Started sampaia-agente.service - SampaIA - API do Agente.
+[2026-11-17 19:20:28] [teste_falha] [sampaia-monitor] PID antes: 4035
+[2026-11-17 19:20:28] [teste_falha] [sampaia-monitor] kill -9 enviado; aguardando o systemd reiniciar...
+[2026-11-17 19:20:33] [teste_falha] [sampaia-monitor] PID depois: 10566 (reinícios: 1)
+Nov 17 19:19:51 sampaia-vm sampaia-monitor[10012]: ALERTA CPU em 89% (limite 85%)
+Nov 17 19:20:28 sampaia-vm systemd[1]: sampaia-monitor.service: Main process exited, code=killed, status=9/KILL
+Nov 17 19:20:28 sampaia-vm systemd[1]: sampaia-monitor.service: Failed with result 'signal'.
+Nov 17 19:20:33 sampaia-vm systemd[1]: sampaia-monitor.service: Scheduled restart job, restart counter is at 1.
+Nov 17 19:20:33 sampaia-vm systemd[1]: Started sampaia-monitor.service - SampaIA - Monitor de CPU, memória, disco e APIs.
+[2026-11-17 19:20:34] [teste_falha] API do Agente respondendo: HTTP 200
+
+$ sudo tail -n 8 /var/log/sampaia/auditoria.log    # 0s, código 0
+2026-11-17 19:09:29 usuario=aluno script=01_rede host=ubuntu-limpo evento=inicio iface=enp0s3 ip=dhcp
+2026-11-17 19:09:35 usuario=aluno script=01_rede host=sampaia-vm evento=fim ok
+2026-11-17 19:09:37 usuario=aluno script=02_app host=sampaia-vm evento=inicio repo=/home/aluno/sampaia
+2026-11-17 19:15:52 usuario=aluno script=02_app host=sampaia-vm evento=fim ok
+2026-11-17 19:15:55 usuario=aluno script=03_nodered host=sampaia-vm evento=inicio
+2026-11-17 19:20:01 usuario=aluno script=03_nodered host=sampaia-vm evento=fim ok
+2026-11-17 19:20:24 usuario=aluno script=teste_falha host=sampaia-vm evento=inicio teste de falha
+2026-11-17 19:20:34 usuario=aluno script=teste_falha host=sampaia-vm evento=fim teste de falha sampaia-agente:3973->10527 sampaia-monitor:4035->10566
+
+$ sudo journalctl -t sampaia-monitor -n 5 --no-pager    # 0s, código 0
+Nov 17 19:20:06 sampaia-vm sampaia-monitor[10365]: ALERTA CPU em 99% (limite 85%)
+Nov 17 19:20:24 sampaia-vm sampaia-monitor[10447]: ALERTA memória em 28% (limite 1%)
+Nov 17 19:20:24 sampaia-vm sampaia-monitor[10450]: ALERTA disco em 31% (limite 1%)
+Nov 17 19:20:33 sampaia-vm sampaia-monitor[10573]: [2026-11-17 19:20:33] [sampaia-monitor] monitor iniciado (intervalo 60s)
+Nov 17 19:20:34 sampaia-vm sampaia-monitor[10573]: [2026-11-17 19:20:34] [sampaia-monitor] cpu=24% mem=27% disco=31%

@@ -1,0 +1,10 @@
+[Unit]
+Description=SampaIA - Garante o monitor no ar (sobe de novo se alguém parar o serviço)
+
+[Timer]
+OnBootSec=1min
+OnUnitInactiveSec=5min
+Unit=sampaia-monitor.service
+
+[Install]
+WantedBy=timers.target

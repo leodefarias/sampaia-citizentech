@@ -1,0 +1,26 @@
+2026-11-17 19:15:47 ALERTA CPU em 99% (limite 85%)
+2026-11-17 19:15:47 ALERTA API sem resposta: http://localhost:5009/api/servicos
+2026-11-17 19:15:47 ALERTA API sem resposta: http://localhost:5010/api/lembretes
+2026-11-17 19:19:51 ALERTA CPU em 89% (limite 85%)
+2026-11-17 19:20:06 ALERTA CPU em 99% (limite 85%)
+2026-11-17 19:20:24 ALERTA memória em 28% (limite 1%)
+2026-11-17 19:20:24 ALERTA disco em 31% (limite 1%)
+Nov 17 19:15:46 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:15:46] [sampaia-monitor] monitor iniciado (intervalo 60s)
+Nov 17 19:15:47 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:15:47] [sampaia-monitor] cpu=99% mem=23% disco=26%
+Nov 17 19:15:47 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:15:47] [sampaia-monitor] ALERTA CPU em 99% (limite 85%)
+Nov 17 19:15:47 sampaia-vm sampaia-monitor[4113]: ALERTA CPU em 99% (limite 85%)
+Nov 17 19:15:47 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:15:47] [sampaia-monitor] ALERTA API sem resposta: http://localhost:5009/api/servicos
+Nov 17 19:15:47 sampaia-vm sampaia-monitor[4117]: ALERTA API sem resposta: http://localhost:5009/api/servicos
+Nov 17 19:15:47 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:15:47] [sampaia-monitor] ALERTA API sem resposta: http://localhost:5010/api/lembretes
+Nov 17 19:15:47 sampaia-vm sampaia-monitor[4122]: ALERTA API sem resposta: http://localhost:5010/api/lembretes
+Nov 17 19:16:48 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:16:48] [sampaia-monitor] cpu=3% mem=26% disco=28%
+Nov 17 19:17:49 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:17:49] [sampaia-monitor] cpu=21% mem=27% disco=29%
+Nov 17 19:18:50 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:18:50] [sampaia-monitor] cpu=20% mem=27% disco=30%
+Nov 17 19:19:51 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:19:51] [sampaia-monitor] cpu=89% mem=30% disco=30%
+Nov 17 19:19:51 sampaia-vm sampaia-monitor[4062]: [2026-11-17 19:19:51] [sampaia-monitor] ALERTA CPU em 89% (limite 85%)
+Nov 17 19:19:51 sampaia-vm sampaia-monitor[10012]: ALERTA CPU em 89% (limite 85%)
+Nov 17 19:20:06 sampaia-vm sampaia-monitor[10365]: ALERTA CPU em 99% (limite 85%)
+Nov 17 19:20:24 sampaia-vm sampaia-monitor[10447]: ALERTA memória em 28% (limite 1%)
+Nov 17 19:20:24 sampaia-vm sampaia-monitor[10450]: ALERTA disco em 31% (limite 1%)
+Nov 17 19:20:33 sampaia-vm sampaia-monitor[10573]: [2026-11-17 19:20:33] [sampaia-monitor] monitor iniciado (intervalo 60s)
+Nov 17 19:20:34 sampaia-vm sampaia-monitor[10573]: [2026-11-17 19:20:34] [sampaia-monitor] cpu=24% mem=27% disco=31%

@@ -1,0 +1,58 @@
+● sampaia-previsao.service - SampaIA - Previsão de prazo do SP156 (ML)
+     Loaded: loaded (/etc/systemd/system/sampaia-previsao.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-11-17 19:15:44 -03; 5min ago
+   Main PID: 3858 (uvicorn)
+      Tasks: 3 (limit: 4653)
+     Memory: 213.4M (peak: 213.7M)
+        CPU: 3.375s
+     CGroup: /system.slice/sampaia-previsao.service
+             └─3858 /opt/sampaia/ml/.venv/bin/python3 /opt/sampaia/ml/.venv/bin/uvicorn servico:app --host 127.0.0.1 --port 8010
+
+● sampaia-monitor.service - SampaIA - Monitor de CPU, memória, disco e APIs
+     Loaded: loaded (/etc/systemd/system/sampaia-monitor.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-11-17 19:20:33 -03; 15s ago
+TriggeredBy: ● sampaia-monitor.timer
+   Main PID: 10566 (bash)
+      Tasks: 3 (limit: 4653)
+     Memory: 900.0K (peak: 2.4M)
+        CPU: 77ms
+     CGroup: /system.slice/sampaia-monitor.service
+             ├─10566 bash /usr/local/bin/sampaia-monitor --loop
+             ├─10573 tee -a /var/log/sampaia/sampaia-monitor.log
+             └─10647 sleep 60
+
+● sampaia-monitor.timer - SampaIA - Garante o monitor no ar (sobe de novo se alguém parar o serviço)
+     Loaded: loaded (/etc/systemd/system/sampaia-monitor.timer; enabled; preset: enabled)
+     Active: active (waiting) since Tue 2026-11-17 19:15:46 -03; 5min ago
+    Trigger: Tue 2026-11-17 19:25:28 -03; 4min 39s left
+   Triggers: ● sampaia-monitor.service
+
+● sampaia-agente.service - SampaIA - API do Agente
+     Loaded: loaded (/etc/systemd/system/sampaia-agente.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-11-17 19:20:28 -03; 20s ago
+   Main PID: 10527 (dotnet)
+      Tasks: 21 (limit: 4653)
+     Memory: 48.1M (peak: 48.6M)
+        CPU: 2.860s
+     CGroup: /system.slice/sampaia-agente.service
+             └─10527 /usr/bin/dotnet /opt/sampaia/agente/Agente.Api.dll
+
+● sampaia-nodered.service - SampaIA - Node-RED (ponte MQTT entre o ESP32 e a API de Lembretes)
+     Loaded: loaded (/etc/systemd/system/sampaia-nodered.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-11-17 19:19:59 -03; 49s ago
+   Main PID: 10137 (node-red)
+      Tasks: 15 (limit: 4653)
+     Memory: 63.8M (peak: 89.8M)
+        CPU: 2.163s
+     CGroup: /system.slice/sampaia-nodered.service
+             └─10137 node-red
+
+● sampaia-lembretes.service - SampaIA - API de Lembretes
+     Loaded: loaded (/etc/systemd/system/sampaia-lembretes.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-11-17 19:15:45 -03; 5min ago
+   Main PID: 3908 (dotnet)
+      Tasks: 21 (limit: 4653)
+     Memory: 70.0M (peak: 70.4M)
+        CPU: 4.065s
+     CGroup: /system.slice/sampaia-lembretes.service
+             └─3908 /usr/bin/dotnet /opt/sampaia/lembretes/Lembretes.Api.dll

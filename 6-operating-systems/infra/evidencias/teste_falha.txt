@@ -1,0 +1,17 @@
+[2026-11-17 19:20:24] [teste_falha] [sampaia-agente] PID antes: 3973
+[2026-11-17 19:20:24] [teste_falha] [sampaia-agente] kill -9 enviado; aguardando o systemd reiniciar...
+[2026-11-17 19:20:28] [teste_falha] [sampaia-agente] PID depois: 10527 (reinícios: 1)
+Nov 17 19:20:24 sampaia-vm systemd[1]: sampaia-agente.service: Main process exited, code=killed, status=9/KILL
+Nov 17 19:20:24 sampaia-vm systemd[1]: sampaia-agente.service: Failed with result 'signal'.
+Nov 17 19:20:24 sampaia-vm systemd[1]: sampaia-agente.service: Consumed 4.193s CPU time, 62.3M memory peak, 0B memory swap peak.
+Nov 17 19:20:28 sampaia-vm systemd[1]: sampaia-agente.service: Scheduled restart job, restart counter is at 1.
+Nov 17 19:20:28 sampaia-vm systemd[1]: Started sampaia-agente.service - SampaIA - API do Agente.
+[2026-11-17 19:20:28] [teste_falha] [sampaia-monitor] PID antes: 4035
+[2026-11-17 19:20:28] [teste_falha] [sampaia-monitor] kill -9 enviado; aguardando o systemd reiniciar...
+[2026-11-17 19:20:33] [teste_falha] [sampaia-monitor] PID depois: 10566 (reinícios: 1)
+Nov 17 19:19:51 sampaia-vm sampaia-monitor[10012]: ALERTA CPU em 89% (limite 85%)
+Nov 17 19:20:28 sampaia-vm systemd[1]: sampaia-monitor.service: Main process exited, code=killed, status=9/KILL
+Nov 17 19:20:28 sampaia-vm systemd[1]: sampaia-monitor.service: Failed with result 'signal'.
+Nov 17 19:20:33 sampaia-vm systemd[1]: sampaia-monitor.service: Scheduled restart job, restart counter is at 1.
+Nov 17 19:20:33 sampaia-vm systemd[1]: Started sampaia-monitor.service - SampaIA - Monitor de CPU, memória, disco e APIs.
+[2026-11-17 19:20:34] [teste_falha] API do Agente respondendo: HTTP 200

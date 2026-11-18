@@ -1,0 +1,21 @@
+[Unit]
+Description=SampaIA - API do Agente
+After=network-online.target sampaia-lembretes.service sampaia-previsao.service
+Wants=network-online.target
+
+[Service]
+User=sampaia
+WorkingDirectory=/opt/sampaia/dados
+EnvironmentFile=/etc/sampaia/sampaia.env
+Environment=ASPNETCORE_URLS=http://0.0.0.0:5009
+ExecStart=/usr/bin/dotnet /opt/sampaia/agente/Agente.Api.dll
+Restart=always
+RestartSec=3
+# Segurança básica do processo
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/sampaia/dados
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,8 @@
+2026-11-17 19:09:29 usuario=aluno script=01_rede host=ubuntu-limpo evento=inicio iface=enp0s3 ip=dhcp
+2026-11-17 19:09:35 usuario=aluno script=01_rede host=sampaia-vm evento=fim ok
+2026-11-17 19:09:37 usuario=aluno script=02_app host=sampaia-vm evento=inicio repo=/home/aluno/sampaia
+2026-11-17 19:15:52 usuario=aluno script=02_app host=sampaia-vm evento=fim ok
+2026-11-17 19:15:55 usuario=aluno script=03_nodered host=sampaia-vm evento=inicio
+2026-11-17 19:20:01 usuario=aluno script=03_nodered host=sampaia-vm evento=fim ok
+2026-11-17 19:20:24 usuario=aluno script=teste_falha host=sampaia-vm evento=inicio teste de falha
+2026-11-17 19:20:34 usuario=aluno script=teste_falha host=sampaia-vm evento=fim teste de falha sampaia-agente:3973->10527 sampaia-monitor:4035->10566

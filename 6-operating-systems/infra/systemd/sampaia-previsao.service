@@ -1,0 +1,17 @@
+[Unit]
+Description=SampaIA - Previsão de prazo do SP156 (ML)
+After=network-online.target
+
+[Service]
+User=sampaia
+WorkingDirectory=/opt/sampaia/ml
+# Só localhost: quem expõe a previsão é a API do Agente.
+ExecStart=/opt/sampaia/ml/.venv/bin/uvicorn servico:app --host 127.0.0.1 --port 8010
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

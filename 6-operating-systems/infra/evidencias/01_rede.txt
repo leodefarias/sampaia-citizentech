@@ -1,0 +1,18 @@
+[2026-11-17 19:09:29] [01_rede] fuso horário: America/Sao_Paulo
+[2026-11-17 19:09:29] [01_rede] hostname definido: sampaia-vm
+[2026-11-17 19:09:30] [01_rede] rede aplicada em enp0s3 (dhcp), DNS 1.1.1.1,8.8.8.8
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW IN    Anywhere                  
+5009/tcp                   ALLOW IN    Anywhere                  
+5010/tcp                   ALLOW IN    Anywhere                  
+22/tcp (v6)                ALLOW IN    Anywhere (v6)             
+5009/tcp (v6)              ALLOW IN    Anywhere (v6)             
+5010/tcp (v6)              ALLOW IN    Anywhere (v6)             
+
+[2026-11-17 19:09:35] [01_rede] firewall ativo

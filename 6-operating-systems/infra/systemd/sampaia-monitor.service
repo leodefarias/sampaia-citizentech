@@ -1,0 +1,12 @@
+[Unit]
+Description=SampaIA - Monitor de CPU, memória, disco e APIs
+After=network-online.target
+
+[Service]
+Environment=LIMITE_CPU=85 LIMITE_MEM=90 LIMITE_DISCO=85 INTERVALO=60
+ExecStart=/usr/local/bin/sampaia-monitor --loop
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
