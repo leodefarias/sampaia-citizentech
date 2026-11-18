@@ -1,0 +1,9 @@
+SampaIA — Physical Computing (Global Solution CitizenTech, FIAP)
+
+Integrantes:
+Nome: Leonardo de Farias  RM: 555211
+Nome: Gustavo Laur  RM: 556603
+Nome: Giancarlo Cestarolli  RM: 555248
+
+Projeto no Wokwi: https://wokwi.com/projects/480882620502191105
+Vídeo (até 4 min): videos/iot-esp32-wokwi.mp4 no repositório · YouTube: https://youtu.be/aM7IXJtgf8U
