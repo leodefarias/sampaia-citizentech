@@ -1,0 +1,14 @@
+# torch só CPU (evita baixar CUDA de ~2 GB); no Colab não instalar este arquivo, tudo já vem pronto
+--extra-index-url https://download.pytorch.org/whl/cpu
+pandas==2.3.*
+scikit-learn==1.7.*
+torch==2.*
+matplotlib==3.10.*
+joblib==1.5.*
+fastapi==0.120.*
+uvicorn==0.38.*
+nbformat==5.10.*
+nbconvert==7.16.*
+ipykernel==7.1.*
+pytest==8.4.*
+httpx==0.28.*
