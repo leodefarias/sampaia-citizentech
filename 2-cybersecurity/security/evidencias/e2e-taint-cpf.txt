@@ -1,0 +1,12 @@
+Gerado em 2026-11-09T23:25:05.955Z por extension/e2e/taint-cpf.mjs
+
+[fonte DOM] página contém CPF 123.456.789-09, e-mail, telefone e senha (fictícios)
+[sanitizador] tipos mascarados no navegador: cpf, cpf, email, telefone
+[retrato enviado] contém o CPF? false | contém [CPF]? true | contém a senha? false
+[sink storage] histórico salvo contém o CPF? false
+[sink banco] pedido gravado: "quero agendar no poupatempo simulado, meu CPF é [CPF]"
+[evento] PiiBloqueadaNaExtensao · baixo · Sink: llm. Encontrado: cpf, email, telefone · "Escondemos seu CPF, seu e-mail e seu telefone antes de qualquer coisa sair do seu computador."
+[evento] PiiBloqueadaNaExtensao · baixo · Sink: api. Encontrado: cpf · "Escondemos seu CPF antes de qualquer coisa sair do seu computador."
+[servidor] chegou PII sem máscara? false
+[Risco Cidadão da tarefa] 2
+RESULTADO: OK — o CPF não saiu do navegador.

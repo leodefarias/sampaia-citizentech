@@ -1,0 +1,82 @@
+{
+  "descricao": "Regras de PII do SampaIA. Lidas pela API (C#) e pela extensão (TS). Ordem importa: regras específicas primeiro. Regex sem flags inline (compatível com .NET e JavaScript); use o campo flags.",
+  "regras": [
+    {
+      "nome": "senha",
+      "padrao": "(senha|c[óo]digo de verifica[çc][ãa]o|password)\\s*[:=]\\s*\\S+",
+      "flags": "i",
+      "bloqueia": true
+    },
+    {
+      "nome": "pix-copia-e-cola",
+      "padrao": "000201[^\\n]{20,}?6304[0-9A-Fa-f]{4}",
+      "marcador": "[PAGAMENTO]"
+    },
+    {
+      "nome": "boleto-bancario",
+      "padrao": "\\b\\d{5}\\.?\\d{5}\\s?\\d{5}\\.?\\d{6}\\s?\\d{5}\\.?\\d{6}\\s?\\d\\s?\\d{14}\\b",
+      "marcador": "[PAGAMENTO]"
+    },
+    {
+      "nome": "boleto-arrecadacao",
+      "padrao": "\\b8\\d{10}[-\\s]?\\d\\s?\\d{11}[-\\s]?\\d\\s?\\d{11}[-\\s]?\\d\\s?\\d{11}[-\\s]?\\d\\b",
+      "marcador": "[PAGAMENTO]"
+    },
+    {
+      "nome": "cns",
+      "padrao": "\\b[1-9]\\d{2}[ .]?\\d{4}[ .]?\\d{4}[ .]?\\d{4}\\b",
+      "validador": "cns",
+      "marcador": "[SAUDE]"
+    },
+    {
+      "nome": "cpf",
+      "padrao": "\\b\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2}\\b",
+      "validador": "cpf",
+      "marcador": "[CPF]"
+    },
+    {
+      "nome": "cartao",
+      "padrao": "\\b(?:\\d[ -]?){12,18}\\d\\b",
+      "validador": "luhn",
+      "marcador": "[PAGAMENTO]"
+    },
+    {
+      "nome": "email",
+      "padrao": "[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)+",
+      "marcador": "[EMAIL]"
+    },
+    {
+      "nome": "telefone",
+      "padrao": "(\\+55\\s?)?\\(\\d{2}\\)\\s?9?\\d{4}[-\\s]?\\d{4}\\b|\\b\\d{2}\\s9?\\d{4}-\\d{4}\\b",
+      "marcador": "[TEL]"
+    },
+    {
+      "nome": "rg",
+      "padrao": "\\b\\d{1,2}\\.\\d{3}\\.\\d{3}-[0-9Xx]\\b",
+      "marcador": "[DOC]"
+    },
+    {
+      "nome": "cep",
+      "padrao": "\\b\\d{5}-\\d{3}\\b",
+      "marcador": "[ENDERECO]"
+    },
+    {
+      "nome": "logradouro",
+      "padrao": "\\b(rua|r\\.|avenida|av\\.|travessa|tv\\.|alameda|al\\.|estrada|pra[çc]a|largo)\\s+(?!(?:e|ou)\\s+\\D|n[úu]mero\\b|nome\\b|onde\\b)[^\\n,;]{1,60}(,\\s*(n[º°o.]?\\s*)?\\d+)?",
+      "flags": "i",
+      "marcador": "[ENDERECO]"
+    },
+    {
+      "nome": "saude",
+      "padrao": "\\b(diagn[óo]stico|CID[- ]?[A-Z]\\d{2}(\\.\\d)?|prontu[áa]rio|receita m[ée]dica|laudo m[ée]dico)\\b",
+      "flags": "i",
+      "marcador": "[SAUDE]"
+    },
+    {
+      "nome": "documento-numerico",
+      "descricao": "CNH, Renavam, CIN e CPF com dígito inválido: qualquer sequência de 9 a 11 dígitos que sobrou.",
+      "padrao": "\\b\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}\\b|\\b\\d{9,11}\\b",
+      "marcador": "[DOC]"
+    }
+  ]
+}

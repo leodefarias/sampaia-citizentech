@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/tests/">
+    <Project Path="tests/Agente.Tests/Agente.Tests.csproj" />
+    <Project Path="tests/Lembretes.Tests/Lembretes.Tests.csproj" />
+  </Folder>
+  <Project Path="Agente.Api/Agente.Api.csproj" />
+  <Project Path="Agente.Domain/Agente.Domain.csproj" />
+  <Project Path="Agente.Infra/Agente.Infra.csproj" />
+  <Project Path="Lembretes.Api/Lembretes.Api.csproj" />
+</Solution>

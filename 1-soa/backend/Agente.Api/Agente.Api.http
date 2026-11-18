@@ -1,0 +1,18 @@
+@api = http://localhost:5009
+
+GET {{api}}/api/servicos
+
+###
+POST {{api}}/api/tarefas
+Content-Type: application/json
+
+{ "intencao": "Oi, Paulinha, quero pagar meu IPTU" }
+
+###
+POST {{api}}/api/tarefas/1/proximo-passo
+Content-Type: application/json
+
+{ "url": "https://meuiptu.sf.prefeitura.sp.gov.br/", "titulo": "IPTU", "conteudo": "Informe o SQL do imóvel. CPF do contribuinte: 529.982.247-25" }
+
+###
+GET {{api}}/api/auditoria

@@ -1,0 +1,29 @@
+Gerado em 2026-11-16T21:54:56.744Z por extension/e2e/fluxo-poupatempo.mjs
+
+1. pausou no login: http://127.0.0.1:5174/login.html?volta=http%3A%2F%2Flocalhost%3A5173%2Fagendar.html
+2. tentativa de ler o login -> bloqueado: Could not establish connection. Receiving end does not exist.
+3. retomou e pediu confirmação: Vou confirmar o agendamento com os dados que aparecem na tela.
+   tela: Posto: Poupatempo Sé. Dia: 23/11/2026 às 09:00.
+4. concluiu: Protocolo: PT-2026-903050
+Data do atendimento: 23/11/2026 às 09:00
+Posto: Poupatempo Sé
+Leve um documento com foto.
+--- conversa ---
+[voce] Oi, Paulinha, quero agendar no Poupatempo simulado
+[paulinha] Combinado! Vou fazer assim:
+1. Abrir o portal simulado
+2. Você entra com a sua conta (login simulado)
+3. Escolher posto, data e horário
+4. Confirmar o agendamento
+[paulinha] Vou abrir o agendamento.
+[paulinha] Chegamos no login do gov.br. Essa parte é com você: eu não consigo ver essa tela, e é por segurança.
+[paulinha] Você entrou! Agora eu continuo daqui.
+[paulinha] Vou escolher o posto Poupatempo Sé, no centro.
+[paulinha] Vou escolher o primeiro dia útil da semana que vem.
+[paulinha] Vou escolher o horário das 09:00.
+[paulinha] Vou continuar para conferir.
+[paulinha] Vou confirmar o agendamento com os dados que aparecem na tela.
+[paulinha] Posso continuar? Toque em "Confirmo" para eu seguir ou em "Não" para parar.
+[voce] Confirmo
+[paulinha] Pronto! Seu agendamento está confirmado.
+[paulinha] Tudo certo! Guardei o resultado em Documentos no aplicativo.
